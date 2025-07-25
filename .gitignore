@@ -1,0 +1,164 @@
+# SourceChat .gitignore
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Node.js (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Frontend Build
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+
+# Testing
+.coverage
+.pytest_cache/
+coverage/
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# Vector Database Storage
+chroma_db/
+vector_store/
+embeddings/
+*.index
+*.pkl
+
+# Cloned Repositories (Temporary)
+temp_repos/
+cloned_repos/
+repos/
+tmp/
+
+# Logs
+*.log
+logs/
+*.out
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Railway
+.railway/
+
+# Docker
+.dockerignore
+Dockerfile.local
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# API Keys and Secrets
+secrets/
+keys/
+*.pem
+*.key
+*.crt
+
+# Large Files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# OS generated files
+.directory
+*~
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Model files (if downloading models locally)
+models/
+*.bin
+*.safetensors
+
+# Cache directories
+.cache/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
