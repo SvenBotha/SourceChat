@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import pytest
 from app.services.git_service import GitService
 from fastapi import HTTPException
@@ -86,3 +84,9 @@ def test_clone_repository_git_error(git_service, mock_repo_clone, tmp_path):
     assert "Failed to clone repository: Git clone failed" in exc.value.detail
     assert not (tmp_path / "repos" / "cpython").exists()  # Ensure cleanup
 
+
+# Test empty repository
+def test_clone_repository_empty_url(git_service):
+    with pytest.raises(HTTPException) as exc:
+        git_service.clone_repository("")
+    assert exc.value.status_code == 400
