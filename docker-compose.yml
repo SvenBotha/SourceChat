@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sourcechat-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-3.5-turbo}
+      - MAX_REPO_SIZE_MB=${MAX_REPO_SIZE_MB:-100}
+      - CHROMA_PERSIST_DIRECTORY=/app/chromadb
+      - SUPPORTED_EXTENSIONS=${SUPPORTED_EXTENSIONS:-.py,.js,.ts,.jsx,.tsx,.java,.cpp,.c,.h,.cs,.php,.rb,.go,.rs,.swift,.kt,.scala,.lua,.vim,.md,.txt,.yaml,.yml,.json,.xml,.html,.css,.scss,.sass,.sql}
+    volumes:
+      - backend_repos:/app/repos
+      - backend_chromadb:/app/chromadb
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - sourcechat
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sourcechat-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - sourcechat
+
+volumes:
+  backend_repos:
+    driver: local
+  backend_chromadb:
+    driver: local
+
+networks:
+  sourcechat:
+    driver: bridge
