@@ -1,33 +1,8 @@
 # SourceChat
 
-**Your code, conversational. 🌙 Now with Dark Mode!**
+**Your code, conversational.**
 
 SourceChat is an AI-powered RAG (Retrieval-Augmented Generation) system that allows you to have natural language conversations with any GitHub repository. Simply paste a repository URL, and start asking questions about the codebase as if you're talking to an expert developer who knows every line of code.
-
-## ✨ What's New
-
-### 🆕 Latest Updates (v2.1)
-- **🌗 Light/Dark Mode Toggle**: Switch between light and dark themes with persistent preference
-- **🐳 Complete Docker Setup**: One-command deployment with docker-compose
-- **🌙 Dark Mode First**: Beautiful dark theme enabled by default with modern design
-- **📺 Full-Screen Chat**: Immersive chat experience that uses the entire viewport
-- **🔧 Enhanced Error Handling**: Robust error states with clear recovery options
-- **⚡ Performance Improvements**: Fixed LangChain deprecation warnings and optimized processing
-- **🎨 Modern UI**: Redesigned interface with better spacing, contrast, and visual hierarchy
-
-## 🚀 Features
-
-- **🌗 Theme Toggle**: Switch between light and dark modes with saved preference
-- **🐳 Docker Ready**: Complete containerization for easy deployment
-- **📺 Full-Screen Chat Interface**: Immersive chat experience that expands to use the entire screen
-- **🔄 Seamless Workflow**: Automatic progression from clone → process → chat with detailed progress indicators
-- **🛡️ Robust Error Handling**: Clear error messages with fail-fast approach and simple recovery
-- **Repository Integration**: Clone and analyze any public GitHub repository
-- **Intelligent Code Understanding**: Advanced embedding and chunking strategies for optimal code comprehension
-- **Natural Language Queries**: Ask questions in plain English about functions, classes, architecture, and more
-- **Real-time Processing**: Live progress updates during repository cloning and processing
-- **Smart Code Navigation**: Get answers with relevant code snippets and file references
-- **Multi-language Support**: Works with popular programming languages and frameworks
 
 ## 🏗️ Architecture
 
@@ -128,6 +103,7 @@ The app will launch in **dark mode** by default with a clean, modern interface. 
 The easiest way to run SourceChat is using Docker Compose, which will set up both frontend and backend automatically:
 
 ### Prerequisites
+
 - Docker and Docker Compose installed on your system
 - OpenAI API key
 
@@ -150,6 +126,7 @@ docker-compose up -d --build
 ```
 
 That's it! The application will be available at:
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8000
 - **API Docs**: http://localhost:8000/docs
@@ -214,7 +191,9 @@ SUPPORTED_EXTENSIONS=.py,.js,.ts,.jsx,.tsx,.java,.cpp,.c,.h,.cs,.php,.rb,.go,.rs
    - "How do I get started with this code?"
 
 ### 🔄 Error Recovery
+
 If something goes wrong:
+
 - **Clear Error Messages**: See exactly what failed and why
 - **One-Click Recovery**: Use "Start Over" to return to the initial state
 - **No Retry Confusion**: Errors halt the process cleanly without flickering states
@@ -307,41 +286,50 @@ docker-compose up --build
 ### Common Issues
 
 **"Processing Failed" or "name 'a' is not defined" errors**
+
 - ✅ Fixed in v2.0 - Updated LangChain usage and fixed variable naming issues
 - Ensure you have the latest version of the code
 
 **"Repository too large" error**
+
 - Increase `MAX_REPO_SIZE_MB` in environment variables
 - The default limit is 100MB per repository
 
 **Dark mode compilation errors**
+
 - ✅ Fixed in v2.0 - Proper Tailwind CSS dark mode configuration
 - Restart the frontend development server if issues persist
 
 **LangChain deprecation warnings**
+
 - ✅ Fixed in v2.0 - Updated to use `invoke()` instead of deprecated `__call__()`
 
 **Missing OpenAI API key**
+
 - Ensure `OPENAI_API_KEY` is set in your `.env` file
 - Check that the `.env` file is in the `backend/` directory
 
 **Frontend won't start**
+
 - Run `npm install` in the frontend directory
 - Check that Node.js version is 18 or higher
 
 **Backend won't start**
+
 - Run `pip install -r requirements.txt` in the backend directory
 - Ensure Python version is 3.9 or higher
 
 ## 🛣️ Roadmap
 
 ### 🚀 v2.1 (Coming Soon)
+
 - [ ] Light/Dark mode toggle
 - [ ] Repository favorites and history
 - [ ] Chat export and sharing
 - [ ] Custom model selection
 
 ### 🔮 Future Versions
+
 - [ ] Support for private repositories
 - [ ] Multiple vector database options
 - [ ] Code execution capabilities
@@ -375,4 +363,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **SourceChat v2.0** - Making code conversations as natural as talking to a colleague. 🌙🚀
 
-*Now with dark mode, full-screen chat, and enhanced error handling!*
+_Now with dark mode, full-screen chat, and enhanced error handling!_
